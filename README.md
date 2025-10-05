@@ -28,28 +28,29 @@ Easy Content Monetization App for Creators, SAAS
     UNIUN --> Conference calls interface like X spaces and  gmeet with other users in the platform.
 
 ## UI Library:
-  USE SHADCN for UI Refer [SHAD CN DOCS](https://ui.shadcn.com/docs)
-  UI SHOULD be modern, minimalistic, futuristic and clean with only SHADCN components
-  UI and UX should look similar to https://x.com/ with colors black, gold and red as the theme colors of the site. The site should premium and end to end interactale with modern experience.
+    USE SHADCN for UI Refer [SHAD CN DOCS](https://ui.shadcn.com/docs)
+    UI SHOULD be modern, minimalistic, futuristic and clean with only SHADCN components
+    UI and UX should look similar to https://x.com/ with colors black, gold and red as the theme colors of the site. The site should premium and end to end interactale with modern experience.
 
 ## Tech stack:
-  Backend: NodeJs 
-  Frontend: NextJs, ReactJs with Shadcn UI
-  DB: Neo4J, VectorDB, MongoDB
-  Monitoring: Graphana, Prometheus
+    Backend: NodeJs 
+    Frontend: NextJs, ReactJs with Shadcn UI
+    DB: Neo4J, VectorDB, MongoDB
+    Monitoring: Graphana, Prometheus
 
 ## Copilot Instructions
-  Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
+    Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
 
 ## Installation & Setup
-
+    TODO
 ## Containerization & Deployment
-
+    TODO
 ## Testing
-
+    TODO
 ## Monitoring
-
+    TODO
 ## Future Scope
+    Add Audio Content Page
 
 
 
