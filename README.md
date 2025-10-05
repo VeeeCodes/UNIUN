@@ -41,3 +41,15 @@ Easy Content Monetization App for Creators, SAAS
 ## Copilot Instructions
   Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
 
+## Installation & Setup
+
+## Containerization & Deployment
+
+## Testing
+
+## Monitoring
+
+## Future Scope
+
+
+
