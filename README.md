@@ -32,12 +32,12 @@ Easy Content Monetization App for Creators, SAAS
   UI SHOULD be modern, minimalistic, futuristic and clean with only SHADCN components
   UI and UX should look similar to https://x.com/ with colors black, gold and red as the theme colors of the site. The site should premium and end to end interactale with modern experience.
 
-# Tech stack:
+## Tech stack:
   Backend: NodeJs 
   Frontend: NextJs, ReactJs with Shadcn UI
   DB: Neo4J, VectorDB, MongoDB
   Monitoring: Graphana, Prometheus
 
-# Copilot Instructions
+## Copilot Instructions
   Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
 
