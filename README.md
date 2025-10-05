@@ -39,6 +39,5 @@ Easy Content Monetization App for Creators, SAAS
   Monitoring: Graphana, Prometheus
 
 # Copilot Instructions
-  Write end to end enterprise grade code for this application using the requirements and techstack mentioned above.
-  Make it a end to end solution github repository, so that I can directly paste in github and run the code.
+  Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
 
