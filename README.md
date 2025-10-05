@@ -34,23 +34,82 @@ Easy Content Monetization App for Creators, SAAS
 
 ## Tech stack:
     Backend: NodeJs 
-    Frontend: NextJs, ReactJs with Shadcn UI
+    Frontend: NextJs with Typescript and ReactJs with Shadcn Material UI
     DB: Neo4J, VectorDB, MongoDB
     Monitoring: Graphana, Prometheus
 
-## Copilot Instructions
-    Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
-
 ## Installation & Setup
-    TODO
+        Quickstart (local, development):
+
+        Prerequisites:
+        - Docker & Docker Compose v2
+        - Node.js 18+ (for local dev if not using Docker)
+
+        1) Build and run with Docker Compose (recommended):
+
+             Open a terminal at the repo root and run:
+
+             ```bash
+             docker compose build
+             docker compose up
+             ```
+
+             This will build the frontend and backend images and start supporting services:
+             - frontend: Next.js app on http://localhost:3000
+             - backend: Node API on http://localhost:4000
+             - neo4j: Graph DB (bolt on 7687, HTTP on 7474)
+             - mongo: MongoDB (27017)
+             - milvus: Vector DB for embeddings (stand-in for VectorDB)
+             - prometheus: Monitoring on 9090
+             - grafana: Dashboard on 3001
+
+        2) Local development (without Docker):
+
+             - Frontend:
+
+                 cd frontend
+                 npm install
+                 npm run dev
+
+             - Backend:
+
+                 cd backend
+                 npm install
+                 npm run dev
+
+        Configuration:
+        - Environment variables are read from `.env` in each service directory (not checked in). Example env keys:
+            - BACKEND_PORT, MONGO_URI, NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD
+
+        Notes & next steps:
+        - The scaffold provides a minimal, enterprise-friendly structure and health endpoints. It does not implement full product features (shadcn UI components, authentication, payments, media storage). Those are next steps.
+        - See `docker-compose.yml` for service ports and credentials.
 ## Containerization & Deployment
-    TODO
+    A `Dockerfile` is provided for both `frontend` and `backend`. Use the included `docker-compose.yml` for local orchestration. For production, adapt Dockerfiles to your cloud provider's build pipeline and replace development settings (for example, use a managed vector DB and managed Neo4j or cloud-hosted databases).
 ## Testing
-    TODO
+    The scaffold includes basic health endpoints and a tiny test harness can be added with Jest/Playwright for unit and E2E tests. Add CI steps (GitHub Actions) to run lint, unit tests, and build.
 ## Monitoring
-    TODO
+    Prometheus and Grafana are included in `docker-compose.yml`. The backend exposes a `/health` endpoint; instrument further metrics (Prometheus client) and add dashboards in Grafana.
 ## Future Scope
     Add Audio Content Page
 
+## Copilot Instructions
+Write end to end enterprise grade, clean, reusable, expandable, fully scalable code for this application using the requirements and techstack mentioned above.
 
+## E2E & WebRTC notes
 
+- Playwright E2E tests are scaffolded under `frontend/e2e`. To run them locally:
+
+```bash
+# from repo root
+pnpm install
+cd frontend
+pnpm -s e2e:install   # installs Playwright browsers
+pnpm -s e2e           # runs the tests against localhost:3000
+```
+
+- The WebRTC demo (`/uniun`) supports configuring STUN/TURN servers via env vars:
+    - `NEXT_PUBLIC_STUN` (defaults to `stun:stun.l.google.com:19302`)
+    - `NEXT_PUBLIC_TURN` (optional, e.g. `turn:turn.example.com:3478`)
+
+When running in CI, the GitHub Actions workflow `./github/workflows/e2e.yml` will start the Docker Compose stack and run Playwright tests.

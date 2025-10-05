@@ -1,0 +1,44 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:24-dind
+        privileged: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Compose
+        run: |
+          docker compose up -d --build
+
+      - name: Wait for services
+        run: |
+          # simple wait for backend
+          for i in {1..30}; do
+            if curl -sS http://localhost:4000/api/health >/dev/null 2>&1; then break; fi
+            sleep 1
+          done
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm -w -s -F frontend e2e:install
+
+      - name: Run Playwright tests
+        run: pnpm -w -s -F frontend e2e
